@@ -1,6 +1,17 @@
 let numOne = 0;
 let numTwo = 0;
-let operator = "";
+const outputDisplay = document.querySelector("#output-display");
+const operator = document.querySelector("#operator");
+const numbers = document.querySelector(".numbers");
+
+numbers.addEventListener("click", ({ target }) => {
+  if (!target.hasAttribute("value")) {
+    return;
+  }
+  outputDisplay.textContent += target.value;
+});
+
+operator.addEventListener("click", () => {});
 
 function addNum(numOne, numTwo) {
   return numOne + numTwo;
@@ -24,9 +35,9 @@ const operate = function (numOne, numTwo, operator) {
       return addNum(numOne, numTwo);
     case "-":
       return subtractNum(numOne, numTwo);
-    case "*":
+    case "x":
       return multiplyNum(numOne, numTwo);
-    case "/":
+    case "÷":
       return divideNum(numOne, numTwo);
   }
 };
